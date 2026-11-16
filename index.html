@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>极速体验动效</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F4F9FD;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Microsoft YaHei', sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .text-box {
+            margin-right: 100px;
+        }
+        .text-box h1 {
+            font-size: 48px;
+            color: #333;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .text-box p {
+            font-size: 18px;
+            color: #888;
+        }
+        /* 火箭整体容器，负责上下悬浮 */
+        .rocket-wrapper {
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+        /* 火箭本体 */
+        .rocket {
+            font-size: 120px;
+            transform: rotate(45deg);
+            display: block;
+        }
+        /* 速度线 */
+        .speed-line {
+            position: absolute;
+            background: linear-gradient(90deg, rgba(255,255,255,0), #6CB4EE);
+            height: 3px;
+            border-radius: 3px;
+            transform: rotate(-45deg);
+            animation: dash 1s linear infinite;
+        }
+        .line1 { width: 80px; top: 20px; left: -100px; animation-delay: 0s; }
+        .line2 { width: 120px; top: 60px; left: -140px; animation-delay: 0.3s; }
+        .line3 { width: 60px; top: 100px; left: -80px; animation-delay: 0.6s; }
+
+        /* 动画关键帧 */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+        @keyframes dash {
+            0% { transform: translateX(0) rotate(-45deg); opacity: 1; }
+            100% { transform: translateX(-100px) rotate(-45deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-box">
+            <h1>极速体验</h1>
+            <p>智能引擎，输入顺滑流畅，<br>让您体验如飞一般的感觉。</p>
+        </div>
+        <div class="rocket-wrapper">
+            <div class="speed-line line1"></div>
+            <div class="speed-line line2"></div>
+            <div class="speed-line line3"></div>
+            <div class="rocket">🚀</div>
+        </div>
+    </div>
+</body>
+</html>
